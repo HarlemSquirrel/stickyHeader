@@ -35,7 +35,13 @@ jQuery(document).ready(function ($) {
       cutoffBottom = tableHeight + cutoffTop - headerCellHeight;
 
       for (var i = 0, l = headerCells.length; i < l; i++) {
-        stickyHeaderCells[i].style.width = headerCells[i].scrollWidth + 'px'
+        if (headerCells[i].style.width.length > 0) {
+          // This takes into account other scripts that set header width
+          // such as DataTables
+          stickyHeaderCells[i].style.width = headerCells[i].style.width
+        } else {
+          stickyHeaderCells[i].style.width = headerCells[i].scrollWidth + 'px'
+        }
       }
 
       stickyHeader.css('width', tableWidth);
