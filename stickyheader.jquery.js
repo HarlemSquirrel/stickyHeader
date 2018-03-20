@@ -14,7 +14,7 @@ jQuery(document).ready(function ($) {
     var headerCells = $(table).find('thead th');
     var headerCellHeight = $(headerCells[0]).height();
 
-    var no_fixed_support = (stickyHeader.css('position') === 'absolute');
+    var noFixedSupport = (stickyHeader.css('position') === 'absolute');
 
     var stickyHeaderCells = stickyHeader.find('th');
 
@@ -67,7 +67,7 @@ jQuery(document).ready(function ($) {
       var currentPosition = $(window).scrollTop();
       if (currentPosition > cutoffTop && currentPosition < cutoffBottom) {
         stickyHeader.removeClass('hide');
-        if (no_fixed_support) {
+        if (noFixedSupport) {
           stickyHeader.css('top', currentPosition + 'px');
         }
       }
